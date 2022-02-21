@@ -1,0 +1,16 @@
+name: "trufflehog-scan"
+
+on:
+  push:
+    branches: [master]
+  
+jobs:
+  Scan:
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: trufflehog-actions-scan
+      uses: edplato/trufflehog-actions-scan@master
